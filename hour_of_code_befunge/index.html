@@ -1,0 +1,1051 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Ivanov sat programiranja #2: Ezoteričan jezik Befunge - PlusPlus</title><meta name=Description content="Službena stranica PlusPlusa"><meta property="og:title" content="Ivanov sat programiranja #2: Ezoteričan jezik Befunge"><meta property="og:description" content="Definicija riječi ezoteričan (HJP):
+  koji je namijenjen zatvorenom krugu, koji je tajan, skrovit (o okultnim tajnama), opr. egzoteričan koji je suviše zatvoren po smislu, koji je teško razumljiv, nečitljiv (o tekstovima, poeziji i sl.)   Ezoterični programski jezici  nastaju iz šale, lude ideje te kao posljedica istraživanja dizajna ili mogućnosti postoji ih nekoliko tisuća, najpoznatiji je Brainf**k možete ih istražiti na wiki stranici Esolang  Primjeri Hello, World!"><meta property="og:type" content="article"><meta property="og:url" content="https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/"><meta property="og:image" content="https://bosnivan.github.io/logo.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-02-28T22:00:00+02:00"><meta property="article:modified_time" content="2022-02-28T22:00:00+02:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://bosnivan.github.io/logo.png"><meta name=twitter:title content="Ivanov sat programiranja #2: Ezoteričan jezik Befunge"><meta name=twitter:description content="Definicija riječi ezoteričan (HJP):
+  koji je namijenjen zatvorenom krugu, koji je tajan, skrovit (o okultnim tajnama), opr. egzoteričan koji je suviše zatvoren po smislu, koji je teško razumljiv, nečitljiv (o tekstovima, poeziji i sl.)   Ezoterični programski jezici  nastaju iz šale, lude ideje te kao posljedica istraživanja dizajna ili mogućnosti postoji ih nekoliko tisuća, najpoznatiji je Brainf**k možete ih istražiti na wiki stranici Esolang  Primjeri Hello, World!"><meta name=application-name content="PlusPlus"><meta name=apple-mobile-web-app-title content="PlusPlus"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=https://bosnivan.github.io/PlusPlus/favicon.ico><link rel=icon type=image/png sizes=32x32 href=https://bosnivan.github.io/PlusPlus/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://bosnivan.github.io/PlusPlus/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=https://bosnivan.github.io/PlusPlus/apple-touch-icon.png><link rel=mask-icon href=https://bosnivan.github.io/PlusPlus/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=https://bosnivan.github.io/PlusPlus/site.webmanifest><link rel=canonical href=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/><link rel=next href=https://bosnivan.github.io/PlusPlus/create_scratch3_extension/><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/lib/normalize/normalize.min.css><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/css/style.min.css><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/lib/fontawesome-free/all.min.css><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Ivanov sat programiranja #2: Ezoteričan jezik Befunge","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/bosnivan.github.io\/PlusPlus\/hour_of_code_befunge\/"},"genre":"posts","keywords":"Befunge","wordcount":2852,"url":"https:\/\/bosnivan.github.io\/PlusPlus\/hour_of_code_befunge\/","datePublished":"2022-02-28T22:00:00+02:00","dateModified":"2022-02-28T22:00:00+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Ivan Bosnić"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=https://bosnivan.github.io/PlusPlus/ title=PlusPlus>++</a></div><div class=menu><div class=menu-inner><a class=menu-item href=https://bosnivan.github.io/PlusPlus/posts/>Objave </a><a class=menu-item href=https://bosnivan.github.io/PlusPlus/tags/>Oznake </a><a class=menu-item href=https://bosnivan.github.io/PlusPlus/categories/>Kategorije </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=https://bosnivan.github.io/PlusPlus/ title=PlusPlus>++</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=https://bosnivan.github.io/PlusPlus/posts/ title>Objave</a><a class=menu-item href=https://bosnivan.github.io/PlusPlus/tags/ title>Oznake</a><a class=menu-item href=https://bosnivan.github.io/PlusPlus/categories/ title>Kategorije</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Ivanov sat programiranja #2: Ezoteričan jezik Befunge</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://bosnivan.github.io/PlusPlus/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Ivan Bosnić</a></span>&nbsp;<span class=post-category>included in <a href=https://bosnivan.github.io/PlusPlus/categories/ivanov-sat-programiranja/><i class="far fa-folder fa-fw"></i>Ivanov sat programiranja</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="28. 2. 2022.">28. 2. 2022.</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2852 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;14 minutes&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#ezoterični-programski-jezici>Ezoterični programski jezici</a></li><li><a href=#primjeri-hello-world-programa>Primjeri <code>Hello, World!</code> programa</a><ul><li><a href=#brainfk>Brainf**k</a></li><li><a href=#chef>Chef</a></li><li><a href=#chicken>Chicken</a></li><li><a href=#cow>COW</a></li><li><a href=#dna>DNA#</a></li><li><a href=#drive-in-window>Drive-In Window</a></li><li><a href=#mycelium>Mycelium</a></li><li><a href=#pi>Pi</a></li><li><a href=#pixiedust>Pixiedust</a></li><li><a href=#poetic>Poetic</a></li><li><a href=#pokébattle>Pokébattle</a></li><li><a href=#unicat>Unicat</a></li><li><a href=#velato>Velato</a></li></ul></li><li><a href=#befunge>Befunge</a><ul><li><a href=#naredbe>Naredbe</a></li><li><a href=#programi>Programi</a><ul><li><a href=#hello-world>Hello, World!</a></li><li><a href=#zbrajanje-zadanih-brojeva>Zbrajanje zadanih brojeva</a></li><li><a href=#fibonaccijev-niz-brojeva>Fibonaccijev niz brojeva</a></li><li><a href=#bacanje-zadanog-broja-kocaka>Bacanje zadanog broja kocaka</a></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><p>Definicija riječi ezoteričan (<a href="https://hjp.znanje.hr/index.php?show=search_by_id&id=fFtgXBA%3D" target=_blank rel="noopener noreffer">HJP</a>):</p><blockquote><ol><li>koji je namijenjen zatvorenom krugu, koji je tajan, skrovit (o okultnim tajnama), opr. egzoteričan</li><li>koji je suviše zatvoren po smislu, koji je teško razumljiv, nečitljiv (o tekstovima, poeziji i sl.)</li></ol></blockquote><h2 id=ezoterični-programski-jezici>Ezoterični programski jezici</h2><ul><li>nastaju iz šale, lude ideje te kao posljedica istraživanja dizajna ili mogućnosti</li><li>postoji ih nekoliko tisuća, najpoznatiji je <code>Brainf**k</code></li><li>možete ih istražiti na wiki stranici <a href=https://esolangs.org/wiki/Language_list target=_blank rel="noopener noreffer">Esolang</a></li></ul><h2 id=primjeri-hello-world-programa>Primjeri <code>Hello, World!</code> programa</h2><h3 id=brainfk>Brainf**k</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>+[-[&lt;&lt;[+[---&gt;]-[&lt;&lt;&lt;]]]&gt;&gt;&gt;-]&gt;-.---.&gt;..&gt;.&lt;&lt;&lt;&lt;-.&lt;+.&gt;&gt;&gt;&gt;&gt;.&gt;.&lt;&lt;.&lt;-.
+</span></span></code></pre></td></tr></table></div></div><h3 id=chef>Chef</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Hello World Cake with Chocolate sauce.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>This prints hello world, while being tastier than Hello World Souffle. The main
+</span></span><span class=line><span class=cl>chef makes a &#34; world!&#34; cake, which he puts in the baking dish. When he gets the
+</span></span><span class=line><span class=cl>sous chef to make the &#34;Hello&#34; chocolate sauce, it gets put into the baking dish
+</span></span><span class=line><span class=cl>and then the whole thing is printed when he refrigerates the sauce. When
+</span></span><span class=line><span class=cl>actually cooking, I&#39;m interpreting the chocolate sauce baking dish to be
+</span></span><span class=line><span class=cl>separate from the cake one and Liquify to mean either melt or blend depending on
+</span></span><span class=line><span class=cl>context.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Ingredients.
+</span></span><span class=line><span class=cl>33 g chocolate chips
+</span></span><span class=line><span class=cl>100 g butter
+</span></span><span class=line><span class=cl>54 ml double cream
+</span></span><span class=line><span class=cl>2 pinches baking powder
+</span></span><span class=line><span class=cl>114 g sugar
+</span></span><span class=line><span class=cl>111 ml beaten eggs
+</span></span><span class=line><span class=cl>119 g flour
+</span></span><span class=line><span class=cl>32 g cocoa powder
+</span></span><span class=line><span class=cl>0 g cake mixture
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Cooking time: 25 minutes.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Pre-heat oven to 180 degrees Celsius.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Method.
+</span></span><span class=line><span class=cl>Put chocolate chips into the mixing bowl.
+</span></span><span class=line><span class=cl>Put butter into the mixing bowl.
+</span></span><span class=line><span class=cl>Put sugar into the mixing bowl.
+</span></span><span class=line><span class=cl>Put beaten eggs into the mixing bowl.
+</span></span><span class=line><span class=cl>Put flour into the mixing bowl.
+</span></span><span class=line><span class=cl>Put baking powder into the mixing bowl.
+</span></span><span class=line><span class=cl>Put cocoa  powder into the mixing bowl.
+</span></span><span class=line><span class=cl>Stir the mixing bowl for 1 minute.
+</span></span><span class=line><span class=cl>Combine double cream into the mixing bowl.
+</span></span><span class=line><span class=cl>Stir the mixing bowl for 4 minutes.
+</span></span><span class=line><span class=cl>Liquify the contents of the mixing bowl.
+</span></span><span class=line><span class=cl>Pour contents of the mixing bowl into the baking dish.
+</span></span><span class=line><span class=cl>bake the cake mixture.
+</span></span><span class=line><span class=cl>Wait until baked.
+</span></span><span class=line><span class=cl>Serve with chocolate sauce.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chocolate sauce.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Ingredients.
+</span></span><span class=line><span class=cl>111 g sugar
+</span></span><span class=line><span class=cl>108 ml hot water
+</span></span><span class=line><span class=cl>108 ml heated double cream
+</span></span><span class=line><span class=cl>101 g dark chocolate
+</span></span><span class=line><span class=cl>72 g milk chocolate
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Method.
+</span></span><span class=line><span class=cl>Clean the mixing bowl.
+</span></span><span class=line><span class=cl>Put sugar into the mixing bowl.
+</span></span><span class=line><span class=cl>Put hot water into the mixing bowl.
+</span></span><span class=line><span class=cl>Put heated double cream into the mixing bowl.
+</span></span><span class=line><span class=cl>dissolve the sugar.
+</span></span><span class=line><span class=cl>agitate the sugar until dissolved.
+</span></span><span class=line><span class=cl>Liquify the dark chocolate.
+</span></span><span class=line><span class=cl>Put dark chocolate into the mixing bowl.
+</span></span><span class=line><span class=cl>Liquify the milk chocolate.
+</span></span><span class=line><span class=cl>Put milk chocolate into the mixing bowl.
+</span></span><span class=line><span class=cl>Liquify contents of the mixing bowl.
+</span></span><span class=line><span class=cl>Pour contents of the mixing bowl into the baking dish.
+</span></span><span class=line><span class=cl>Refrigerate for 1 hour.
+</span></span></code></pre></td></tr></table></div></div><h3 id=chicken>Chicken</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken chicken
+</span></span><span class=line><span class=cl>chicken chicken chicken chicken chicken chicken
+</span></span></code></pre></td></tr></table></div></div><h3 id=cow>COW</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl> MoO MoO MoO MoO MoO MoO MoO MoO MOO moO MoO MoO MoO MoO MoO moO MoO MoO MoO MoO moO MoO MoO MoO MoO moO MoO MoO MoO MoO MoO MoO MoO
+</span></span><span class=line><span class=cl> MoO MoO moO MoO MoO MoO MoO mOo mOo mOo mOo mOo MOo moo moO moO moO moO Moo moO MOO mOo MoO moO MOo moo mOo MOo MOo MOo Moo MoO MoO 
+</span></span><span class=line><span class=cl> MoO MoO MoO MoO MoO Moo Moo MoO MoO MoO Moo MMM mOo mOo mOo MoO MoO MoO MoO Moo moO Moo MOO moO moO MOo mOo mOo MOo moo moO moO MoO 
+</span></span><span class=line><span class=cl> MoO MoO MoO MoO MoO MoO MoO Moo MMM MMM Moo MoO MoO MoO Moo MMM MOo MOo MOo Moo MOo MOo MOo MOo MOo MOo MOo MOo Moo mOo MoO Moo
+</span></span></code></pre></td></tr></table></div></div><h3 id=dna>DNA#</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> T-----A
+</span></span><span class=line><span class=cl> T-----A
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>   CG
+</span></span><span class=line><span class=cl>  C--G
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> T-----A
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  C--G
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl> C-----G
+</span></span><span class=line><span class=cl> T-----A
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl>  C--G
+</span></span><span class=line><span class=cl>   CG
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> C-----G
+</span></span><span class=line><span class=cl> C----G
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> C----G
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   CG
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> C-----G
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> C----G
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   CG
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   CG
+</span></span><span class=line><span class=cl>   GC
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> T-----A
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> T-----A
+</span></span><span class=line><span class=cl> A-----T
+</span></span><span class=line><span class=cl> T----A
+</span></span><span class=line><span class=cl>  G--C
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>   TA
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> G-----C
+</span></span><span class=line><span class=cl> A----T
+</span></span><span class=line><span class=cl>  A--T
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>   AT
+</span></span><span class=line><span class=cl>  T--A
+</span></span><span class=line><span class=cl> G----C
+</span></span><span class=line><span class=cl> A-----T
+</span></span></code></pre></td></tr></table></div></div><h3 id=drive-in-window>Drive-In Window</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Hi, welcome to Hello_World_Buffet. Here is a menu.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Rice Krispie Treat: $10
+</span></span><span class=line><span class=cl>Ice Cream: $30
+</span></span><span class=line><span class=cl>Cookies: $70
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Here are your sides.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Whipped Cream: $1
+</span></span><span class=line><span class=cl>Chocolate: $2
+</span></span><span class=line><span class=cl>Caramel: $3
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>May I take your order?
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Person 1 would like the Cookies with Chocolate.
+</span></span><span class=line><span class=cl>Person 1 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 would like the Ice Cream, hold the Whipped Cream.
+</span></span><span class=line><span class=cl>Person 2 would also like what Person 1 has.
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 needs 7 dollars more for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 needs 3 dollars more for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 3 would like the Ice Cream with Chocolate.
+</span></span><span class=line><span class=cl>Person 3 will pay for his order!
+</span></span><span class=line><span class=cl>Person 1 would also like the Rice Krispie Treat with Caramel.
+</span></span><span class=line><span class=cl>Person 1 needs 2 more dollars for his order!
+</span></span><span class=line><span class=cl>Person 1 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 needs 3 dollars more for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 needs 6 dollars less for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 2 needs 8 dollars less for his order!
+</span></span><span class=line><span class=cl>Person 2 will pay for his order!
+</span></span><span class=line><span class=cl>Person 3 needs 1 dollar more for his order!
+</span></span><span class=line><span class=cl>Person 3 will pay for his order!
+</span></span><span class=line><span class=cl>Just wait while we decide...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>OK, that will be $1.14. Thanks for coming!
+</span></span></code></pre></td></tr></table></div></div><h3 id=mycelium>Mycelium</h3><p><a href=https://esolangs.org/wiki/Hello_world_program_in_esoteric_languages_%28nonalphabetic_and_A-M%29#Mycelium target=_blank rel="noopener noreffer">Hello, World!</a></p><h3 id=pi>Pi</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>  3.1415926535897932384226433232725028841271693992751358239749245923072164062
+</span></span><span class=line><span class=cl>  822089986780348053431120629821483865332223366470908446395535832317223594083
+</span></span><span class=line><span class=cl>  284831172502841037019385311052596446029489529303219642288009756259134461214
+</span></span><span class=line><span class=cl>  751482337817834652812009021456285664234613486134553226482133236073603491413
+</span></span><span class=line><span class=cl>  737242870066363155841744815239239622292545917053643278925902605113301301488
+</span></span><span class=line><span class=cl>  204625213821429519415316024320522703627595939530921261373219226137931021185
+</span></span><span class=line><span class=cl>  580744023794627495273518257527348912274384830113491298346743644406563430865
+</span></span><span class=line><span class=cl>  2133494633522473749030217386093370277033921317659317670238267581846066440
+</span></span></code></pre></td></tr></table></div></div><h3 id=pixiedust>Pixiedust</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>+           +               .   *+       ..  +.        ..            .                  .              .          
+</span></span><span class=line><span class=cl>.
+</span></span><span class=line><span class=cl>+            +   .*    +   +.    .    +           .+                         *
+</span></span><span class=line><span class=cl>                   ++.        *   +  +  .  ++     .  .    *                         .              .      .   .       
+</span></span><span class=line><span class=cl>.*
+</span></span><span class=line><span class=cl>               +     +.     *  +    + .+         + .   .*                         .                 .   .    . ..
+</span></span><span class=line><span class=cl>            ++      .  *     ++.    + ++        +  *                 .      .   ..          .              .*
+</span></span><span class=line><span class=cl>           +     +   .* + .   +     +.              .  .                  .           .   .   .                .
+</span></span><span class=line><span class=cl>              +           +  .*+           .   .. .     .*                                 .  .  . ..         . .   
+</span></span><span class=line><span class=cl>.*
+</span></span><span class=line><span class=cl>+               +.  *      +. +      .        ++          +*
+</span></span><span class=line><span class=cl> +         +. *+                       +       .  ++  ++             ..                                 .     ..
+</span></span><span class=line><span class=cl>            +  +.        * +  +                 + ..   +  .*                         .
+</span></span><span class=line><span class=cl>          + +        . *            ++        . + +       ..*            .                          ..
+</span></span><span class=line><span class=cl>+                  +  .  *  ++.                  .+.. .          .    .                    . ...        ..
+</span></span><span class=line><span class=cl>            +       +   .  *+                ..    . .    +*.         .      .       .         .       .*
+</span></span></code></pre></td></tr></table></div></div><h3 id=poetic>Poetic</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>the proverbial &#34;unconsciousness&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>i was already aware
+</span></span><span class=line><span class=cl>i had understood fully
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>i saw the devil
+</span></span><span class=line><span class=cl>i was perfectly still
+</span></span><span class=line><span class=cl>involuntarily i paused
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>there said i:
+</span></span><span class=line><span class=cl>my sheer consciousness
+</span></span><span class=line><span class=cl>of certain given circumstances
+</span></span><span class=line><span class=cl>i noticed
+</span></span><span class=line><span class=cl>it&#39;s nothing
+</span></span><span class=line><span class=cl>     nothing
+</span></span><span class=line><span class=cl>     nothing any man wouldn&#39;t learn
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>a way of finding these
+</span></span><span class=line><span class=cl>i know not
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>nothing common or typical
+</span></span><span class=line><span class=cl>and yet (somehow)
+</span></span><span class=line><span class=cl>very little thought
+</span></span><span class=line><span class=cl>will normally resolve every contradiction
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>a foolish heart -&gt; an eternal misfortune
+</span></span></code></pre></td></tr></table></div></div><h3 id=pokébattle>Pokébattle</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Trainer 1: Alice
+</span></span><span class=line><span class=cl> Togepi
+</span></span><span class=line><span class=cl> Emolga
+</span></span><span class=line><span class=cl> Talonflame
+</span></span><span class=line><span class=cl> Rhyperior
+</span></span><span class=line><span class=cl> Abra
+</span></span><span class=line><span class=cl> Pikachu
+</span></span><span class=line><span class=cl>Trainer 2: Bob
+</span></span><span class=line><span class=cl> Yveltal
+</span></span><span class=line><span class=cl> Raichu
+</span></span><span class=line><span class=cl> Oranguru
+</span></span><span class=line><span class=cl> Nidoqueen
+</span></span><span class=line><span class=cl> Incineroar
+</span></span><span class=line><span class=cl> Avalugg 
+</span></span><span class=line><span class=cl>‌
+</span></span><span class=line><span class=cl>Battle Start!
+</span></span><span class=line><span class=cl>Turn 0:
+</span></span><span class=line><span class=cl> Alice: Rhyperior Go!
+</span></span><span class=line><span class=cl> Bob: Avalugg Go!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 1:
+</span></span><span class=line><span class=cl> Rhyperior uses Absorb!
+</span></span><span class=line><span class=cl> Avalugg uses Absorb!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 2:
+</span></span><span class=line><span class=cl> Rhyperior uses Absorb!
+</span></span><span class=line><span class=cl> Avalugg uses Absorb!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 3:
+</span></span><span class=line><span class=cl> Alice: That&#39;s enough! Go Pikachu!
+</span></span><span class=line><span class=cl> Avalugg uses Splash!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 4:
+</span></span><span class=line><span class=cl> Pikachu uses Absorb!
+</span></span><span class=line><span class=cl> Bob: That&#39;s enough! Go Raichu!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 5:
+</span></span><span class=line><span class=cl> Alice: That&#39;s enough! Go Rhyperior!
+</span></span><span class=line><span class=cl> Raichu uses Absorb!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 6:
+</span></span><span class=line><span class=cl> Rhyperior uses Splash!
+</span></span><span class=line><span class=cl> Bob: That&#39;s enough! Go Avalugg!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 7:
+</span></span><span class=line><span class=cl> Rhyperior uses Absorb!
+</span></span><span class=line><span class=cl> Avalugg uses Absorb!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 8:
+</span></span><span class=line><span class=cl> Alice uses Max Potion!
+</span></span><span class=line><span class=cl> Avalugg uses Tackle! It&#39;s not very effective.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 9:
+</span></span><span class=line><span class=cl> Rhyperior uses Flamethrower!
+</span></span><span class=line><span class=cl> Avalugg uses Splash!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 10:
+</span></span><span class=line><span class=cl> Rhyperior uses Swords Dance!
+</span></span><span class=line><span class=cl> Avalugg uses Swords Dance!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 11:
+</span></span><span class=line><span class=cl> Rhyperior uses Tackle! It&#39;s not very effective.
+</span></span><span class=line><span class=cl> Bob uses Max Potion!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 12:
+</span></span><span class=line><span class=cl> Rhyperior uses Skill Swap!
+</span></span><span class=line><span class=cl> Avalugg uses Swords Dance!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 13:
+</span></span><span class=line><span class=cl> Rhyperior uses Swords Dance!
+</span></span><span class=line><span class=cl> Avalugg uses Tackle! It&#39;s not very effective.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 14:
+</span></span><span class=line><span class=cl> Alice uses Hyper Potion!
+</span></span><span class=line><span class=cl> Bob: That&#39;s enough! Go Raichu!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 15:
+</span></span><span class=line><span class=cl> Rhyperior uses Swords Dance!
+</span></span><span class=line><span class=cl> Bob uses Super Potion!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 16:
+</span></span><span class=line><span class=cl> Alice: That&#39;s enough! Go Pikachu!
+</span></span><span class=line><span class=cl> Raichu uses Tackle! It&#39;s not very effective.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 17:
+</span></span><span class=line><span class=cl> Pikachu uses Swords Dance!
+</span></span><span class=line><span class=cl> Raichu uses Swords Dance!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 18:
+</span></span><span class=line><span class=cl> Alice: That&#39;s enough! Go Rhyperior!
+</span></span><span class=line><span class=cl> Bob uses Potion!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 19:
+</span></span><span class=line><span class=cl> Alice uses Max Potion!
+</span></span><span class=line><span class=cl> Bob: That&#39;s enough! Go Avalugg!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 20:
+</span></span><span class=line><span class=cl> Rhyperior uses Swords Dance!
+</span></span><span class=line><span class=cl> Avalugg uses Flamethrower! It&#39;s super effective!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 21:
+</span></span><span class=line><span class=cl> Rhyperior uses Swords Dance!
+</span></span><span class=line><span class=cl> Avalugg uses Tackle! It&#39;s not very effective.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 22:
+</span></span><span class=line><span class=cl> Alice uses Hyper Potion!
+</span></span><span class=line><span class=cl> Avalugg uses Splash!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 23:
+</span></span><span class=line><span class=cl> Rhyperior uses Swords Dance!
+</span></span><span class=line><span class=cl> Avalugg uses Swords Dance!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 24:
+</span></span><span class=line><span class=cl> Rhyperior uses Flamethrower! It&#39;s super effective!
+</span></span><span class=line><span class=cl> Avalugg uses Swords Dance!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 25:
+</span></span><span class=line><span class=cl> Alice: That&#39;s enough! Go Abra!
+</span></span><span class=line><span class=cl> Bob: That&#39;s enough! Go Raichu!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Turn 26:
+</span></span><span class=line><span class=cl> Abra uses Splash!
+</span></span><span class=line><span class=cl> Raichu uses Swords Dance!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Battle End!
+</span></span><span class=line><span class=cl>Winner: Alice
+</span></span></code></pre></td></tr></table></div></div><h3 id=unicat>Unicat</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>😻😹😸🙀🙀😹😹😸🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😼😽🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😽😼🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😽😼🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😽😿🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😽😼🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😼😸🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😺😿🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😽😿🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😾😺🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😽😼🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😼😼🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😼😹🙀🙀😽😼😸🙀🙀😻😹😸🙀🙀😹😺🙀🙀😽😼😸🙀🙀🙀🙀
+</span></span></code></pre></td></tr></table></div></div><h3 id=velato>Velato</h3><p><a href=https://esolangs.org/wiki/Hello_world_program_in_esoteric_languages_%28N-Z%29#Velato target=_blank rel="noopener noreffer">Hello, World!</a></p><h2 id=befunge>Befunge</h2><ul><li>jedan od poznatijih ezojezika</li><li>2D jezik, stogovno orijentiran</li><li>program je torus veličine 80x25 znakova</li><li>svaki je od znakova naredba ili podatak</li><li>izvršavanje naredbi moguće je u svim smjerovima</li><li>praznina je naredba koja ne radi ništa</li><li>na stog se pohranjuju cijeli brojevi (C-ov <code>signed long int</code>)</li><li>prazan stog vraća 0 kao vrijednost</li><li>jezik je dostupan u dvama dijalektima: <code>Befunge-93</code> i <code>Befunge-98</code></li><li>nadahnuo je razne druge ezojezike pa i videoigru <a href=https://store.steampowered.com/app/917900/Monster_Logic/ target=_blank rel="noopener noreffer">Monster Logic</a>, koja je bila nadahnuće za ovo predstavljanje</li></ul><h3 id=naredbe>Naredbe</h3><p>Preuzeto sa stranice <a href=https://catseye.tc/view/Befunge-93/doc/Befunge-93.markdown target=_blank rel="noopener noreffer">https://catseye.tc/view/Befunge-93/doc/Befunge-93.markdown</a>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>COMMAND         INITIAL STACK (bot-&gt;top)RESULT (STACK)
+</span></span><span class=line><span class=cl>-------         -------------           -----------------
+</span></span><span class=line><span class=cl>+ (add)         &lt;value1&gt; &lt;value2&gt;       &lt;value1 + value2&gt;
+</span></span><span class=line><span class=cl>- (subtract)    &lt;value1&gt; &lt;value2&gt;       &lt;value1 - value2&gt;
+</span></span><span class=line><span class=cl>* (multiply)    &lt;value1&gt; &lt;value2&gt;       &lt;value1 * value2&gt;
+</span></span><span class=line><span class=cl>/ (divide)      &lt;value1&gt; &lt;value2&gt;       &lt;value1 / value2&gt; (nb. integer)
+</span></span><span class=line><span class=cl>% (modulo)      &lt;value1&gt; &lt;value2&gt;       &lt;value1 mod value2&gt;
+</span></span><span class=line><span class=cl>! (not)         &lt;value&gt;                 &lt;0 if value non-zero, 1 otherwise&gt;
+</span></span><span class=line><span class=cl>` (greater)     &lt;value1&gt; &lt;value2&gt;       &lt;1 if value1 &gt; value2, 0 otherwise&gt;
+</span></span><span class=line><span class=cl>&gt; (right)                               PC -&gt; right
+</span></span><span class=line><span class=cl>&lt; (left)                                PC -&gt; left
+</span></span><span class=line><span class=cl>^ (up)                                  PC -&gt; up
+</span></span><span class=line><span class=cl>v (down)                                PC -&gt; down
+</span></span><span class=line><span class=cl>? (random)                              PC -&gt; right? left? up? down? ???
+</span></span><span class=line><span class=cl>_ (horizontal if) &lt;boolean value&gt;       PC-&gt;left if &lt;value&gt;, else PC-&gt;right
+</span></span><span class=line><span class=cl>| (vertical if)   &lt;boolean value&gt;       PC-&gt;up if &lt;value&gt;, else PC-&gt;down
+</span></span><span class=line><span class=cl>&#34; (stringmode)                          Toggles &#39;stringmode&#39;
+</span></span><span class=line><span class=cl>: (dup)         &lt;value&gt;                 &lt;value&gt; &lt;value&gt;
+</span></span><span class=line><span class=cl>\ (swap)        &lt;value1&gt; &lt;value2&gt;       &lt;value2&gt; &lt;value1&gt;
+</span></span><span class=line><span class=cl>$ (pop)         &lt;value&gt;                 pops &lt;value&gt; but does nothing
+</span></span><span class=line><span class=cl>. (output int)  &lt;value&gt;                 outputs &lt;value&gt; as integer
+</span></span><span class=line><span class=cl>, (output char) &lt;value&gt;                 outputs &lt;value&gt; as ASCII
+</span></span><span class=line><span class=cl># (bridge)                              &#39;jumps&#39; PC one farther; skips
+</span></span><span class=line><span class=cl>                                        over next command
+</span></span><span class=line><span class=cl>g (get)         &lt;x&gt; &lt;y&gt;                 &lt;value at (x,y)&gt;
+</span></span><span class=line><span class=cl>p (put)         &lt;value&gt; &lt;x&gt; &lt;y&gt;         puts &lt;value&gt; at (x,y)
+</span></span><span class=line><span class=cl>&amp; (input int)                           &lt;value user entered&gt;
+</span></span><span class=line><span class=cl>~ (input character)                     &lt;character user entered&gt;
+</span></span><span class=line><span class=cl>@ (end)                                 ends program
+</span></span></code></pre></td></tr></table></div></div><h3 id=programi>Programi</h3><p>Mogu se isprobati na stranici <a href=https://angussbj.github.io/befunge/ target=_blank rel="noopener noreffer">https://angussbj.github.io/befunge/</a>.</p><h4 id=hello-world>Hello, World!</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>&#34;!dlroW ,olleH&#34;&gt;:v 
+</span></span><span class=line><span class=cl>               ^,_@
+</span></span></code></pre></td></tr></table></div></div><h4 id=zbrajanje-zadanih-brojeva>Zbrajanje zadanih brojeva</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>&amp;&amp;+.@
+</span></span></code></pre></td></tr></table></div></div><h4 id=fibonaccijev-niz-brojeva>Fibonaccijev niz brojeva</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>10v \+g10:p&lt;
+</span></span><span class=line><span class=cl>  &gt;:.55+,01^
+</span></span></code></pre></td></tr></table></div></div><h4 id=bacanje-zadanog-broja-kocaka>Bacanje zadanog broja kocaka</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>&amp;     v      
+</span></span><span class=line><span class=cl>&gt;5&gt;5+,v,+5&lt;5&lt;
+</span></span><span class=line><span class=cl>  5   :   5  
+</span></span><span class=line><span class=cl>      !      
+</span></span><span class=line><span class=cl>  .  @_1v .  
+</span></span><span class=line><span class=cl>  1   v-&lt; 5  
+</span></span><span class=line><span class=cl> &gt;^   v  &gt;^  
+</span></span><span class=line><span class=cl> ^?v# ? #^?v 
+</span></span><span class=line><span class=cl>  v&lt;      v&lt; 
+</span></span><span class=line><span class=cl>  6   #   2  
+</span></span><span class=line><span class=cl>  .   &gt;v  .  
+</span></span><span class=line><span class=cl>^ &lt;.3&lt;?&gt;4.&gt; ^
+</span></span><span class=line><span class=cl>     ^&lt; 
+</span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 28. 2. 2022.</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/ data-title="Ivanov sat programiranja #2: Ezoteričan jezik Befunge" data-via=https://twitter.com/PlusPlusInt data-hashtags=Befunge><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/ data-hashtag=Befunge><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/><i class="fab fa-linkedin fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/ data-title="Ivanov sat programiranja #2: Ezoteričan jezik Befunge" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="Share on Pinterest" data-sharer=pinterest data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/><i class="fab fa-pinterest fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="Share on Evernote" data-sharer=evernote data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/ data-title="Ivanov sat programiranja #2: Ezoteričan jezik Befunge"><i class="fab fa-evernote fa-fw"></i></a><a href=javascript:void(0); title="Share on Trello" data-sharer=trello data-url=https://bosnivan.github.io/PlusPlus/hour_of_code_befunge/ data-title="Ivanov sat programiranja #2: Ezoteričan jezik Befunge" data-description><i class="fab fa-trello fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=https://bosnivan.github.io/PlusPlus/tags/befunge/>Befunge</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=https://bosnivan.github.io/PlusPlus/>Home</a></span></section></div><div class=post-nav><a href=https://bosnivan.github.io/PlusPlus/create_scratch3_extension/ class=next rel=next title="Kako napraviti Scratch 3 ekstenziju">Kako napraviti Scratch 3 ekstenziju<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/lib/katex/katex.min.css><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/lib/katex/copy-tex.min.css><link rel=stylesheet href=https://bosnivan.github.io/PlusPlus/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/lunr/lunr.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/sharer/sharer.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/katex/katex.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/katex/auto-render.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/katex/copy-tex.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/katex/mhchem.min.js></script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{},cookieconsent:{content:{dismiss:"Got it!",link:"Learn more",message:"This website uses Cookies to improve your experience."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=https://bosnivan.github.io/PlusPlus/js/theme.min.js></script></body></html>
